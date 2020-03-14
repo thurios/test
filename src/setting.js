@@ -1,5 +1,7 @@
 var SHEET_NAME = '自社枠'; // カレンダーのあるシート名
-var SHEET_NAME_IRREGULAR = '19年度_HRイレギュラー用16時枠'; // カレンダーのあるシート名
+var SALES_SHEET_NAME = "販売枠";
+var BANNER_SHEET_NAME = "バナー枠";
+
 
 var START_DATA_ROW = 6; // カレンダーの開始行
 
@@ -37,9 +39,8 @@ function setSalesDate() {
     var ss = SpreadsheetApp.getActiveSpreadsheet();
     var sheet = ss.getSheetByName(SHEET_NAME);
 
-    var dateFormat = 'yyyy年M月d日';
     var today = new Date();
-    var todayStr = Utilities.formatDate(today, 'Asia/Tokyo', dateFormat);
+    var todayStr = getYMD(today);
     var todayIndex;
 
     var todayUpdatedYet = false;
@@ -60,7 +61,7 @@ function setSalesDate() {
             continue;
         }
 
-        var targetDateStr = Utilities.formatDate(dateColumn[i][0], 'Asia/Tokyo', dateFormat);
+        var targetDateStr = getYMD(dateColumn[i][0]);
 
         if (todayStr === targetDateStr) {
             if (salesDateColumn[i][0] != '本日') {
@@ -124,6 +125,16 @@ function setSalesDate() {
         if (beforeSalesDateNum === 10) {
             salesDateColumn[i][0] = '10営前';
             salesDateColumnBg[i][0] = '#FFE0F0';
+        }
+
+        if (beforeSalesDateNum === 20) {
+            salesDateColumn[i][0] = '20営前';
+            salesDateColumnBg[i][0] = '#FFFFFF';
+        }
+
+        if (beforeSalesDateNum === 30) {
+            salesDateColumn[i][0] = '30営前';
+            salesDateColumnBg[i][0] = '#FFFFFF';
         }
     }
 

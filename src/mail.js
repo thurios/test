@@ -8,142 +8,398 @@ var DEFAULT_CC = 'nyuko@profuture.co.jp';
 var PROQ_EMAIL = 'nyuko@ml.pro-q.jp';
 
 // 枠の設定
-var COLUMNS = [
+var IN_HOUSE_SHEET_COLUMNS = [
   {
-    "site": "HRプロ", "name": "HR自社枠7:30", "time": "7時30分",
-    "note": 5, "project": 7, "draft": 8, "status": 9,
-    "inside": true
+    "site": "HRプロ",
+    "name": "HR自社枠7:30",
+    "time": "7時30分",
+    "inside": true,
+    "project": true,
+    "column": {
+        "note": "D",
+        "project": "F",
+        "draft": "G",
+        "status": "H",
+    },
   },
   {
-    "site": "HRプロ", "name": "HRプロ_info広告", "time": "7時30分",
-    "note": 10, "draft": 11, "status": 12,
-    "inside": true, "dummyOutside": true
+    "site": "HRプロ",
+    "name": "HRプロ_info広告",
+    "time": "7時30分",
+    "inside": true,
+    "dummyOutside": true,
+    "project": false,
+    "column": {
+        "note": "I",
+        "draft": "J",
+        "status": "K",
+    }
   },
   {
-    "site": "HRプロ", "name": "HRプロ_6行広告", "time": "7時30分",
-    "note": 13, "draft": 14, "status": 15
+    "site": "HRプロ",
+    "name": "HRプロ16:00",
+    "time": "16時",
+    "inside": true,
+    "project": true,
+    "column": {
+        "note": "O",
+        "project": "Q",
+        "draft": "R",
+        "status": "S",
+    }
   },
   {
-    "site": "HRプロ", "name": "HRプロ_単独DM", "time": "10時",
-    "note": 16, "project": 18, "draft": 19, "status": 20,
-    "before7DaySend": true
+    "site": "経営プロ",
+    "name": "経営プロ自社枠7:30",
+    "time": "7時30分",
+    "inside": true,
+    "project": true,
+    "column": {
+        "note": "U",
+        "project": "W",
+        "draft": "X",
+        "status": "Y",
+    }
   },
   {
-    "site": "HRプロ", "name": "HRプロ_単独DM", "time": "12時",
-    "note": 21, "project": 23, "draft": 24, "status": 25,
-    "before7DaySend": true
+    "site": "経営プロ",
+    "name": "経営プロ_info広告",
+    "time": "7時30分",
+    "inside": true,
+    "dummyOutside": true,
+    "project": false,
+    "column": {
+        "note": "Z",
+        "draft": "AA",
+        "status": "AB",
+    }
   },
-  {
-    "site": "HRプロ", "name": "HRプロ_アンケート", "time": "12時",
-    "note": 26, "draft": 28, "status": 29,
-    "before7DaySend": true, "deadline": 5, "survey": true
-  },
-  {
-    "site": "経営プロ", "name": "経営プロ自社枠7:30", "time": "7時30分",
-    "note": 31, "project": 33, "draft": 34, "status": 35,
-    "inside": true
-  },
-  {
-    "site": "経営プロ", "name": "経営プロ_info広告", "time": "7時30分",
-    "note": 36, "draft": 37, "status": 38,
-    "inside": true, "dummyOutside": true
-  },
-  {
-    "site": "経営プロ", "name": "経営プロ_6行", "time": "7時30分",
-    "note": 39, "draft": 40, "status": 41
-  },
-  {
-    "site": "経営プロ", "name": "経営プロ_単独DM", "time": "12時",
-    "note": 42, "project": 44, "draft": 45, "status": 46,
-    "before7DaySend": true
-  },
-  {
-    "site": "経営プロ", "name": "経営プロ_アンケート", "time": "12時",
-    "note": 47, "draft": 49, "status": 50,
-    "before7DaySend": true, "deadline": 5, "survey": true
-  },
+];
+
+var SALES_SHEET_COLUMNS = [
+    {
+        "site": "HRプロ",
+        "name": "HRプロ_6行広告",
+        "time": "7時30分",
+        "inside": false,
+        "project": false,
+        "column": {
+            "note": "E",
+            "draft": "F",
+            "status": "G",
+        },
+    },
+    {
+        "site": "HRプロ",
+        "name": "HRプロ_単独DM",
+        "time": "10時",
+        "inside": false,
+        "project": true,
+        "column": {
+            "note": "K",
+            "project": "M",
+            "draft": "N",
+            "status": "O",
+        },
+    },
+    {
+        "site": "HRプロ",
+        "name": "HRプロ_単独DM",
+        "time": "12時",
+        "inside": false,
+        "project": true,
+        "column": {
+            "note": "U",
+            "project": "W",
+            "draft": "X",
+            "status": "Y",
+        },
+    },
+    {
+        "site": "経営プロ",
+        "name": "経営プロ_6行",
+        "time": "7時30分",
+        "inside": false,
+        "project": false,
+        "column": {
+            "note": "AB",
+            "draft": "AC",
+            "status": "AD",
+        },
+    },
+    {
+        "site": "経営プロ",
+        "name": "経営プロ_単独DM",
+        "time": "12時",
+        "inside": false,
+        "project": true,
+        "column": {
+            "note": "AH",
+            "project": "AJ",
+            "draft": "AK",
+            "status": "AL",
+        },
+    },
+];
+
+
+var BANNER_SHEET_COLUMNS = [
+    {
+        "site": "HRプロ",
+        "name": "ヘッダー（メイン）",
+        "inside": true,
+        "banner": true,
+        "project": false,
+        "column": {
+            "note": "E",
+            "draft": "F",
+            "status": "G",
+        },
+    },
+    {
+        "site": "HRプロ",
+        "name": "ヘッダー（メイン）",
+        "inside": false,
+        "banner": true,
+        "project": false,
+        "column": {
+            "note": "E",
+            "draft": "F",
+            "status": "G",
+        },
+    },
+    {
+        "site": "HRプロ",
+        "name": "TOPテキスト①（メイン）",
+        "inside": false,
+        "banner": true,
+        "project": false,
+        "column": {
+            "note": "H",
+            "draft": "I",
+            "status": "J",
+        },
+    },
+    {
+        "site": "HRプロ",
+        "name": "TOPテキスト②（メイン）",
+        "inside": false,
+        "banner": true,
+        "project": false,
+        "column": {
+            "note": "K",
+            "draft": "L",
+            "status": "M",
+        },
+    },
+    {
+        "site": "HRプロ",
+        "name": "レクタングル①（レクタングル）",
+        "inside": false,
+        "banner": true,
+        "project": false,
+        "column": {
+            "note": "N",
+            "draft": "O",
+            "status": "P",
+        },
+    },
+    {
+        "site": "HRプロ",
+        "name": "レクタングル②（レクタングル）",
+        "inside": false,
+        "banner": true,
+        "project": false,
+        "column": {
+            "note": "Q",
+            "draft": "R",
+            "status": "S",
+        },
+    },
+    {
+        "site": "HRプロ",
+        "name": "2ndレクタングル①（セカンドレクタングル）",
+        "inside": false,
+        "banner": true,
+        "project": false,
+        "column": {
+            "note": "T",
+            "draft": "U",
+            "status": "V",
+        },
+    },
+    {
+        "site": "HRプロ",
+        "name": "2ndレクタングル②（セカンドレクタングル）",
+        "inside": false,
+        "banner": true,
+        "project": false,
+        "column": {
+            "note": "W",
+            "draft": "X",
+            "status": "Y",
+        },
+    },
+    {
+        "site": "HRプロ",
+        "name": "記事下 レクタングルバナー①（記事下レクタングル）",
+        "inside": false,
+        "banner": true,
+        "project": false,
+        "column": {
+            "note": "Z",
+            "draft": "AA",
+            "status": "AB",
+        },
+    },
+    {
+        "site": "HRプロ",
+        "name": "記事下 レクタングルバナー②（記事下レクタングル）",
+        "inside": false,
+        "banner": true,
+        "project": false,
+        "column": {
+            "note": "AC",
+            "draft": "AD",
+            "status": "AE",
+        },
+    },
+    {
+        "site": "経営プロ",
+        "name": "B枠（販売／アンケートセット）",
+        "inside": false,
+        "banner": true,
+        "project": false,
+        "column": {
+            "note": "AI",
+            "draft": "AJ",
+            "status": "AK",
+        },
+    },
 ];
 
 var PROJECTS = [
     {
-      "name": "共催/PS_編集G", "owner": "編集G担当者", "isClient": false,
-      "to": "site@profuture.co.jp", "cc": "kikaku@profuture.co.jp",
-      "send5": true, "send3": true
+        "name": "共催/PS_編集G",
+        "inside": true,
+        "owner": "編集G担当者",
+        "isClient": false,
+        "to": "staff",
     },
     {
-      "name": "共催/PS_企画G", "owner": "企画G担当者", "isClient": false,
-      "to": "kikaku@profuture.co.jp", "cc": "site@profuture.co.jp",
-      "send5": true, "send3": true
+        "name": "共催/PS_企画G",
+        "inside": true,
+        "owner": "企画G担当者",
+        "isClient": false,
+        "to": "staff",
     },
     {
-      "name": "共催/PS_クラ", "owner": "", "isClient": true,
-      "send5": true, "send3": true
+        "name": "共催/PS_クラ",
+        "inside": false,
+        "owner": "",
+        "isClient": true,
     },
     {
-      "name": "村上案件（イレギュラー）", "owner": "村上", "isClient": false,
-      "to": "t.murakami@profuture.co.jp", "cc": "site@profuture.co.jp",
-      "send5": true, "send3": true
+        "name": "調査レポート",
+        "inside": true,
+        "owner": "内藤",
+        "isClient": false,
+        "to": "y.naito@profuture.co.jp",
     },
     {
-      "name": "HRサポート", "owner": "", "isClient": false,
-      "to": "staff", "cc": "hrsupport@profuture.co.jp", "cc2": "nyuko@profuture.co.jp",
-      "send5": true, "send3": true
+        "name": "コラム編集企画",
+        "inside": true,
+        "owner": "",
+        "isClient": false,
+        "to": "staff",
     },
     {
-      "name": "企画G作成", "owner": "企画G担当者", "isClient": false,
-      "to": "kikaku@profuture.co.jp", "cc": "staff",
-      "send5": true, "send3": true
+        "name": "オリジナル編集企画",
+        "inside": true,
+        "owner": "",
+        "isClient": false,
+        "to": "staff",
     },
     {
-      "name": "調査レポート", "owner": "生方", "isClient": false,
-      "to": "s.ubukata@profuture.co.jp", "cc": "site@profuture.co.jp",
-      "send5": true, "send3": true
+        "name": "村上案件（イレギュラー）",
+        "inside": true,
+        "owner": "村上",
+        "isClient": false,
+        "to": "t.murakami@profuture.co.jp",
+        "cc": "site@profuture.co.jp",
     },
     {
-      "name": "コラム編集企画", "owner": "生方", "isClient": false,
-      "to": "s.ubukata@profuture.co.jp", "cc": "site@profuture.co.jp",
-      "send5": true, "send3": true
+        "name": "HRサポート",
+        "inside": true,
+        "owner": "",
+        "isClient": false,
+        "to": "staff",
+        "cc": "hrsupport@profuture.co.jp",
     },
     {
-      "name": "オリジナル編集企画", "owner": "生方", "isClient": false,
-      "to": "s.ubukata@profuture.co.jp", "cc": "site@profuture.co.jp",
-      "send5": true, "send3": true
+        "name": "Podcast単独",
+        "inside": true,
+        "owner": "松岡",
+        "isClient": false,
+        "to": "h.matsuoka@profuture.co.jp",
+        "cc": "hrsupport@profuture.co.jp",
     },
     {
-      "name": "ミニアンケート", "owner": "", "isClient": true,
-      "miniSurvey": true,
-      "send5": false, "send3": false
+        "name": "企画G作成",
+        "inside": true,
+        "owner": "企画G担当者",
+        "isClient": false,
+        "to": "kikaku@profuture.co.jp",
+        "cc": "staff",
     },
     {
-      "name": "Podcast単独", "owner": "松岡", "isClient": false,
-      "to": "h.matsuoka@profuture.co.jp", "cc": "hrsupport@profuture.co.jp",
-      "send5": true, "send3": true
+        "name": "QM",
+        "inside": false,
+        "owner": "",
+        "isClient": true,
+        "survey": true,
+        "miniSurvey": true,
+    },
+    {
+        "name": "共同調査",
+        "inside": true,
+        "owner": "村上様 草野",
+        "isClient": false,
+        "survey": true,
+        "to": "t.murakami@profuture.co.jp,k.kusano@profuture.co.jp"
+    },
+    {
+        "name": "通常アンケート",
+        "inside": false,
+        "owner": "",
+        "isClient": true,
+        "survey": true,
     },
 ];
-
-// 枠の設定
-var COLUMNS_IRREGULAR = [
-    {
-      "site": "HRプロ", "name": "HRプロ_単独DM", "time": "16時",
-      "note": 4, "project": 6, "draft": 7, "status": 8,
-      "before7DaySend": true
-    },
-];
-
 
 function mailReminder() {
-    remindRegularMail();
-    remindIrregularMail();
+    // メールを送信する権限があるかどうか(MAIL_FROMのエイリアスがGMailで設定されているかどうか）
+    if (!checkGmailAliases()) {
+        return;
+    }
+
+    remindInHouseMail();
+    remindSalesMail();
+    remindBannerMail();
 }
 
-
-function remindRegularMail() {
-    remindMail(SHEET_NAME, COLUMNS);
+function remindInHouseMail() {
+    remindMail(SHEET_NAME, IN_HOUSE_SHEET_COLUMNS);
 }
 
-function remindIrregularMail() {
-    remindMail(SHEET_NAME_IRREGULAR, COLUMNS_IRREGULAR);
+function remindSalesMail() {
+    remindMail(SALES_SHEET_NAME, SALES_SHEET_COLUMNS);
 }
+
+function remindBannerMail() {
+    remindMail(BANNER_SHEET_NAME, BANNER_SHEET_COLUMNS);
+}
+
 /**
  * リマインド対象をチェックしてメールを送信する
  *
@@ -160,83 +416,45 @@ function remindMail(adSheetName, adColumnSetting) {
 
     var salesDateColumn = sheet.getRange(START_DATA_ROW, SALES_DATE_COLUMN, sheet.getLastRow() - 1, sheet.getLastColumn()).getValues();
 
-    var note; // メモ欄（送信情報が書かれている）
     var mailTplSheet; // メールテンプレートシート
     var tpl; // メール本文テンプレート
     var mailInfo; // メール送信情報
     var title; // メールタイトル
-    var company; // 企業
     var targetCount = 0; // 送信/下書き対象数
     var deliveryDate; // 配信日
     var deliveryDateStr; // 配信日の文字列
     var sendType; // 送信タイプ 送信,下書き
     var beforeSalesDate; // 営業日（３営前など)
 
+    var inputed;
+
     var hasError = false;
-    var canSend = false;
 
-    var deadlineDate;
-    var deadline3;
-    var deadline5;
-    var deadline7;
-
-
-    var projectType; // 案件対応
-    var isPlanningGroupProject; // 企画G作成かどうか
-
-    var isNew = false; // リニューアル過渡期のためのフラグ
-
-    // メールを送信する権限があるかどうか(MAIL_FROMのエイリアスがGMailで設定されているかどうか）
-    var aliases = GmailApp.getAliases();
-    aliases.forEach(function(value) {
-        if (value == MAIL_FROM) {
-            canSend = true;
-        }
-
-        if (value == MAIL_FROM2) {
-            MAIL_FROM = MAIL_FROM2;
-            canSend = true;
-        }
-    });
-
-    if (!canSend) {
-        Browser.msgBox('あなたはGMailで[' + MAIL_FROM + ']のエイリアスが設定されていないため、メールを送信できません');
-        return;
-    }
-
+    var isClient = false;
 
     // カレンダーを上から順に処理する
     for (var i = 0; i < salesDateColumn.length; i++) {
-        company = '';
-        note = '';
         deadlineDate = '';
-        isNew = false;
 
 
         // 締切を設定する。メール送信対象でない営業日(7,10以外)は、ここで処理が終わる
+        if (! salesDateColumn[i][1]) {
+            break;
+        }
+
+        var targetDate = Utilities.formatDate(salesDateColumn[i][1], 'Asia/Tokyo', 'M/d');
+
         switch (salesDateColumn[i][0]) {
             case '本日':
-                deadline10before10 = Utilities.formatDate(salesDateColumn[i][1], 'Asia/Tokyo', 'M/d');
-                deadline3 = Utilities.formatDate(salesDateColumn[i][1], 'Asia/Tokyo', 'M/d');
-                continue;
-            case '2営前':
-                deadline5 = Utilities.formatDate(salesDateColumn[i][1], 'Asia/Tokyo', 'M/d');
+                today = targetDate;
                 continue;
             case '3営前':
-                deadline10before7 = Utilities.formatDate(salesDateColumn[i][1], 'Asia/Tokyo', 'M/d');
+                deadline10before7 = targetDate;
                 beforeSalesDate = 3;
-                deadlineDate = deadline3;
-                continue;
-            case '4営前':
-                deadline7 = Utilities.formatDate(salesDateColumn[i][1], 'Asia/Tokyo', 'M/d');
-                continue;
-            case '5営前':
-                beforeSalesDate = 5;
-                deadlineDate = deadline5;
                 continue;
             case '7営前':
                 beforeSalesDate = 7;
-                deadlineDate = deadline7;
+                deadlineDate = today;
                 break;
             case '8営前':
                 beforeSalesDate = 8;
@@ -247,7 +465,15 @@ function remindMail(adSheetName, adColumnSetting) {
             case '10営前':
                 beforeSalesDate = 10;
                 deadlineDate = deadline10before7;
-                isNew = true;
+                deadline10 = targetDate;
+                break;
+            case '20営前':
+                beforeSalesDate = 20;
+                deadlineDate = deadline10;
+                break;
+            case '30営前':
+                beforeSalesDate = 30;
+                deadlineDate = deadline10;
                 break;
             default:
                 continue;
@@ -263,153 +489,122 @@ function remindMail(adSheetName, adColumnSetting) {
 
         // 広告枠を処理する
         adColumnSetting.forEach(function(adInfo, index) {
+            inputed = {
+                company: '',
+                note: '',
+                draft: '',
+                status: '',
+                projectType: '',
+            };
+
             hasError = false;
-            isPlanningGroupProject = false;
-            projectType = '';
             projectInfo = null;
 
-            company = salesDateColumn[i][adInfo['note'] - 1];
+            inputed['company'] = salesDateColumn[i][letterToColumn(adInfo['column']['note']) - 1];
 
             // 対象の入力がない場合はスキップ
-            if (!company) {
+            if (! inputed['company']) {
                 return;
             }
 
-            draft = salesDateColumn[i][adInfo['draft'] - 1];
-            status = salesDateColumn[i][adInfo['status'] - 1];
+            inputed['draft'] = salesDateColumn[i][letterToColumn(adInfo['column']['draft']) - 1];
 
             // 入稿に何か入力してある場合はスキップ
-            if (draft !== '') {
+            if (inputed['draft'] !== '') {
                 return;
             }
+
+            inputed['status'] = salesDateColumn[i][letterToColumn(adInfo['column']['status']) - 1];
 
             // 8,9日前リマインダーは進捗が「仮」以外はスキップ
-            if (8 <= beforeSalesDate && beforeSalesDate <= 9 && status.indexOf('仮') !== 0) {
+            if (8 <= beforeSalesDate && beforeSalesDate <= 9 && inputed['status'].indexOf('仮') !== 0) {
                 return;
             }
 
-            // 7日以内は仮の場合はスキップ
-            if (status.indexOf('仮') === 0 && beforeSalesDate <= 7) {
+            // 7日前は仮の場合はスキップ
+            if (inputed['status'].indexOf('仮') === 0 && beforeSalesDate === 7) {
                 return;
             }
 
             // ステータスが対象営業日前リマインド済の場合はスキップ（すでに送信しているため）
-            if (status.indexOf(beforeSalesDate.toString() + 'R済') !== -1) {
+            if (inputed['status'].indexOf(beforeSalesDate.toString() + 'R済') !== -1) {
                 return;
             }
 
             // 案件対応セル
-            if ('project' in adInfo) {
-                projectType = salesDateColumn[i][adInfo['project'] - 1];
+            if (inAndTrue(adInfo, 'project')) {
+                inputed['projectType'] = salesDateColumn[i][letterToColumn(adInfo['column']['project']) - 1];
 
                 // ・入力があった場合のチェック
-                if (projectType != '') {
-                    isPlanningGroupProject = true;
-
+                if (inputed['projectType'] !== '') {
                     PROJECTS.forEach(function(_projectInfo, index) {
-                        if (_projectInfo['name'] == projectType) {
+                        if (_projectInfo['name'] == inputed['projectType']) {
                             projectInfo = _projectInfo;
                             return;
                         }
                     });
-
-                    // 送信設定されていない日付ではメール送信しない
-                    if (projectInfo) {
-                        if (beforeSalesDate == 5 && !projectInfo['send5']) {
-                            return;
-                        }
-
-                        if (beforeSalesDate == 3 && !projectInfo['send3']) {
-                            return;
-                        }
-                    }
-
-                } else {
-                    isPlanningGroupProject = false;
                 }
             }
 
-            // アンケートは7日未満は送らない
-            if ('survey' in adInfo && beforeSalesDate < 7) {
+            if (inputed['projectType'] == '共同調査') {
+                if (beforeSalesDate < 10) {
+                    // 共同調査は10日が締め切り
+                    return;
+                }
+            } else if (beforeSalesDate > 10) {
+                // 20日前、30日前は案件が共同調査のみ送る
                 return;
             }
 
-            // 締切が5営前の場合、締切を上書きする（アンケート）
-            if (('deadline' in adInfo && adInfo['deadline'] == 5) ||
-                (projectInfo && 'miniSurvey' in projectInfo && projectInfo['miniSurvey'])
-            ) {
-                // リニューアル後は入稿期限はアンケートが10営前、それ以外(クイックミニ含む)は7営前で統一される
-                if (isNew) {
-                    if ('survey' in adInfo) {
-                        deadlineDate = deadline10before10;
-                    }
-                } else {
-                    deadlineDate = deadline5;
+            // 20日前、30日前は案件が共同調査のみ送る
+            if (beforeSalesDate == 20 || beforeSalesDate == 30) {
+                if (inputed['projectType'] != '共同調査') {
+                    return;
                 }
             }
 
-            note = sheet.getRange(i + START_DATA_ROW, adInfo['note']).getNote();
+            // メモ
+            inputed['note'] = sheet.getRange(i + START_DATA_ROW, letterToColumn(adInfo['column']['note'])).getNote();
 
             // メモの入力チェック
-            if (status.indexOf('仮') === 0) {
+            if (inputed['status'].indexOf('仮') === 0) {
                 // 仮の時はnoteの有無はチェックしない
-            } else if (!note) {
-                Browser.msgBox(beforeSalesDate.toString() + '営前' + adInfo['time'] + adInfo['name'] + '（' + company + '）のメモがありません。入力してください。');
+            } else if (! inputed['note']) {
+                Browser.msgBox(beforeSalesDate.toString() + '営前' + adInfo['time'] + adInfo['name'] + '（' + inputed['company'] + '）のメモがありません。入力してください。');
                 return;
             }
 
-            mailInfo = getMailInfoFromNote(note);
+            noteInfo = getInfoFromNote(inputed['note']);
 
-            if (status.indexOf('仮') === 0) {
-                mailTplSheet = ss.getSheetByName('仮枠');
-            } else if (projectInfo) { // 案件対応の場合
-                if (projectInfo['isClient']) {
-                    if ('miniSurvey' in projectInfo && projectInfo['miniSurvey']) {
-                        mailTplSheet = ss.getSheetByName(beforeSalesDate.toString() + '営前ミニアンケート');
-                    } else {
-                        mailTplSheet = ss.getSheetByName(beforeSalesDate.toString() + '営前');
-                    }
-                } else {
-                    mailTplSheet = ss.getSheetByName(beforeSalesDate.toString() + '営前社内');
-                }
-            } else {
-                if (beforeSalesDate === 7 && isPlanningGroupProject) {
-                    mailTplSheet = ss.getSheetByName('7営前社内');
-                } else if ('survey' in adInfo) {
-                    if (isNew) {
-                        mailTplSheet = ss.getSheetByName(beforeSalesDate.toString() + '営前アンケート');
-                    } else {
-                        mailTplSheet = ss.getSheetByName('7営前アンケート');
-                    }
-                } else if ('inside' in adInfo && !('dummyOutside' in adInfo)) {
-                    mailTplSheet = ss.getSheetByName(beforeSalesDate.toString() + '営前社内');
-                } else {
-                    mailTplSheet = ss.getSheetByName(beforeSalesDate.toString() + '営前');
-                }
-            }
+            mailTplSheet = ss.getSheetByName(getMailTplSheetName(beforeSalesDate, inputed, projectInfo, adInfo));
 
             title = mailTplSheet.getRange('B1').getValue();
             tpl = mailTplSheet.getRange('B2').getValue();
 
             targetCount++;
 
-            //        mailInfo['staff']['mail'] = getStaffMail(mailInfo['staff']['name']);
+            isClient = false;
 
-            //        if (('inside' in adInfo && adInfo['inside'] && ! mailInfo['to']['mail']) || isPlanningGroupProject) {
-
-
-
-            // 案件対応の場合
-            if (status.indexOf('仮') === 0) {
-                mailInfo['to'] = {'name': '企画Ｇ', 'mail': 'kikaku@profuture.co.jp'};
-                mailInfo['cc'] = [{'name': '', 'mail': 'nyuko@profuture.co.jp'}];
-                mailInfo['projectType'] = projectType;
+            if (inputed['status'].indexOf('仮') === 0) {
+                // 仮枠の場合
+                mailInfo = {
+                    'to': {'name': '企画Ｇ', 'mail': 'kikaku@profuture.co.jp'},
+                    'cc': [],
+                    'projectType': inputed['projectType'],
+                }
             } else if (projectInfo) {
-                // クライアントではない場合は、TO/CCを上書き
-                if (!projectInfo['isClient']) {
-                    // TOがstaff以外の場合は上書き
+                // 案件の場合
+                if (projectInfo['isClient']) {
+                    isClient = true;
+                } else {
+                    mailInfo = {
+                        'to': {},
+                        'cc': [],
+                    };
+
                     if (projectInfo['to'] == 'staff') {
-                        mailInfo['to'] = mailInfo['staff'];
+                        // TOがstaffの場合
+                        mailInfo['to'] = noteInfo['staff'];
                     } else {
                         mailInfo['to'] = {
                             'mail': projectInfo['to'],
@@ -417,64 +612,82 @@ function remindMail(adSheetName, adColumnSetting) {
                         };
                     }
 
-                    // CCがstaff以外の場合は上書き
-                    mailInfo['cc'] = [];
-                    if (projectInfo['cc'] == 'staff') {
-                        mailInfo['cc'].push(mailInfo['staff']);
-                    } else {
-                        mailInfo['cc'].push({
-                            'mail': projectInfo['cc']
-                        });
+                    if (projectInfo['cc']) {
+                        if (projectInfo['cc'] == 'staff') {
+                            mailInfo['cc'].push(noteInfo['staff']);
+                        } else {
+                            mailInfo['cc'].push({
+                                'mail': projectInfo['cc']
+                            });
+                        }
                     }
-
-                    // デフォルトCCは常に送る
-                    if (DEFAULT_CC) {
-                        mailInfo['cc'].push({
-                            "name": "",
-                            "mail": DEFAULT_CC
-                        });
-                    }
-
-                } else if ('miniSurvey' in projectInfo && projectInfo['miniSurvey']) {
-                    mailInfo['cc'].push({
-                        "name": "",
-                        "mail": PROQ_EMAIL
-                    });
-
-                    mailInfo['cc'].push(mailInfo['staff']);
                 }
             } else {
-                if (('inside' in adInfo && adInfo['inside']) || isPlanningGroupProject) {
-                    mailInfo['to'] = mailInfo['staff'];
+                // 案件以外
+                if (inAndTrue(adInfo, 'inside')) {
+                    // 自社枠
+                    mailInfo = {
+                        'to': noteInfo['staff'],
+                        'cc': [],
+                    };
                 } else {
-                    mailInfo['cc'].push(mailInfo['staff']);
+                    // 販売枠
+                    isClient = true;
                 }
             }
 
-            if (!('inside' in adInfo && adInfo['inside'])) {
-              mailInfo['cc'].push({
-                "name": "",
-                "mail": "kikaku@profuture.co.jp"
-              });
+            if (isClient) {
+                mailInfo = {
+                    'to': noteInfo['to'],
+                    'cc': noteInfo['cc'],
+                };
+
+                mailInfo['cc'].push(noteInfo['staff']);
+
+                mailInfo['cc'].push({
+                    "name": "",
+                    "mail": "kikaku@profuture.co.jp"
+                });
             }
 
-            mailInfo['company'] = company;
+            if (projectInfo && inAndTrue(projectInfo, 'miniSurvey')) {
+                mailInfo['cc'].push({
+                    "name": "",
+                    "mail": PROQ_EMAIL
+                });
+            }
+
+            if (DEFAULT_CC) {
+                mailInfo['cc'].push({
+                    "name": "",
+                    "mail": DEFAULT_CC
+                });
+            }
+
+            mailInfo['company'] = inputed['company'];
             mailInfo['deliveryDate'] = deliveryDateStr;
-            mailInfo['product'] = adInfo['name'];
+
+            if (inAndTrue(projectInfo, 'survey')) {
+                mailInfo['product'] = 'アンケート';
+            } else {
+                mailInfo['product'] = adInfo['name'];
+            }
+
             mailInfo['deadlineDate'] = deadlineDate;
-            mailInfo['projectType'] = projectType;
+            mailInfo['projectType'] = inputed['projectType'];
             mailInfo['beforeSalesDate'] = beforeSalesDate;
+            mailInfo['staff'] = noteInfo['staff'];
 
             body = setMailBody(mailInfo, tpl);
 
             title = title.replace(/%company%/, mailInfo['company']);
             title = title.replace(/%deliveryDate%/, mailInfo['deliveryDate']);
-            title = title.replace(/%product%/, adInfo['name']);
+            title = title.replace(/%product%/, mailInfo['product']);
             title = title.replace(/%beforeSalesDate%/, mailInfo['beforeSalesDate']);
 
-            var message = getConfirmationMessage(adInfo, mailInfo, note, beforeSalesDate);
+            var message = getConfirmationMessage(adInfo, mailInfo, inputed['note'], beforeSalesDate);
 
-            if (status.indexOf('仮') === 0) {
+            if (inputed['status'].indexOf('仮') === 0) {
             } else if (!mailInfo['staff']['name']) {
                 message += "\\n・PF担当者が正しく設定されていません。メモの先頭に【PF担当者】を入力してください。\\n";
                 hasError = true;
@@ -536,7 +749,13 @@ function remindMail(adSheetName, adColumnSetting) {
  * メール送信対象の確認メッセージのヘッダー部分を取得
  */
 function getConfirmationMessage(adInfo, mailInfo, note, beforeSalesDate) {
-    var message = beforeSalesDate.toString() + "営前" + adInfo['time'] + "[" + adInfo['site']　 + "]" + adInfo['name'] + "枠のリマインダーメール\\n";
+    var message = beforeSalesDate.toString() + "営前";
+
+    if (adInfo['time']) {
+        message += adInfo['time'];
+    }
+
+    message += "[" + adInfo['site']　 + "]" + adInfo['name'] + "枠のリマインダーメール\\n";
     message += "---------------メモ欄---------------\\n";
     message += note.split(String.fromCharCode(10)).join('\\n');
 
@@ -565,7 +784,7 @@ function getConfirmationMessage(adInfo, mailInfo, note, beforeSalesDate) {
 /**
  * メモ欄の値から、送信対象者を設定
  */
-function getMailInfoFromNote(note) {
+function getInfoFromNote(note) {
     if (! note) {
       return {};
     }
@@ -632,13 +851,6 @@ function getMailInfoFromNote(note) {
         }
     }
 
-    if (DEFAULT_CC) {
-        cc.push({
-            "name": "",
-            "mail": DEFAULT_CC
-        });
-    }
-
     return {
         'staff': staff,
         'to': to,
@@ -671,23 +883,6 @@ function setMailBody(info, tpl) {
     var ccAdded = false;
     var address = info['to']['name'] + "様";
 
-    /*
-    // CCは本文には記載させない仕様になったのでコメントアウトしておく(2018/6/25)
-    if (info['cc'].length > 0) {
-
-      for (var i = 0; i < info['cc'].length; i++) {
-        if (info['cc'][i]['name'] && 'outside' in info['cc'][i]) {
-          if (! ccAdded) {
-            address += String.fromCharCode(10);
-            address += "cc: ";
-            ccAdded = true;
-          }
-          address += info['cc'][i]['name'] + "様　";
-        }
-      }
-    }
-    */
-
     var body = tpl.replace(/%address%/, address);
     body = body.replace(/%deliveryDate%/, info['deliveryDate']);
     body = body.replace(/%product%/, info['product']);
@@ -696,8 +891,6 @@ function setMailBody(info, tpl) {
     body = body.replace(/%company%/, info['company']);
     body = body.replace(/%beforeSalesDate%/, info['beforeSalesDate']);
 
-
-    // アンケートは5営業前が締切になるので、テンプレートのプレースホルダーの名前を差別したい(2018/6/29)
     body = body.replace(/%surveyDeadlineDate%/, info['deadlineDate']);
 
     return body;
@@ -739,9 +932,58 @@ function sendMail(mailInfo, title, body, sendType) {
     }
 }
 
-function trim_(target){
-  if (target == null || target == undefined){
-    return "";
-  }
-  return target.replace(/(^\s+)|(\s+$)/g, "");
+function getMailTplSheetName(beforeSalesDate, inputed, projectInfo, adInfo) {
+    var sheetName;
+
+    if (inputed['status'].indexOf('仮') === 0) {
+        sheetName = '仮枠';
+    } else if ('banner' in adInfo) {
+        sheetName = beforeSalesDate.toString() + '営前バナー';
+    } else if (projectInfo) { // 案件対応の場合
+        if (projectInfo['name'] == 'QM' || projectInfo['name'] == '通常アンケート') {
+            sheetName = beforeSalesDate.toString() + '営前アンケート';
+        } else if (projectInfo['name'] == '共同調査') {
+            sheetName = beforeSalesDate.toString() + '営前共同アンケート';
+        } else if (projectInfo['isClient']) {
+            sheetName = beforeSalesDate.toString() + '営前';
+        } else {
+            sheetName = beforeSalesDate.toString() + '営前社内';
+        }
+    } else {
+        if (adInfo['inside']) {
+            if (inAndTrue(adInfo, 'dummyOutside')) {
+                sheetName = beforeSalesDate.toString() + '営前';
+            } else {
+                sheetName = beforeSalesDate.toString() + '営前社内';
+            }
+        } else {
+            sheetName = beforeSalesDate.toString() + '営前';
+        }
+    }
+
+    return sheetName;
+}
+
+function checkGmailAliases() {
+    // メールを送信する権限があるかどうか(MAIL_FROMのエイリアスがGMailで設定されているかどうか）
+    var aliases = GmailApp.getAliases();
+    var canSend = false;
+
+    aliases.forEach(function(value) {
+        if (value == MAIL_FROM) {
+            canSend = true;
+        }
+
+        if (value == MAIL_FROM2) {
+            MAIL_FROM = MAIL_FROM2;
+            MAIL_REPLY_TO = MAIL_FROM2;
+            canSend = true;
+        }
+    });
+
+    if (!canSend) {
+        Browser.msgBox('あなたはGMailで[' + MAIL_FROM + ']のエイリアスが設定されていないため、メールを送信できません');
+    }
+
+    return canSend;
 }
