@@ -140,140 +140,189 @@ var SALES_SHEET_COLUMNS = [
             "status": "AL",
         },
     },
+    {
+        "site": "経営プロ",
+        "name": "経営プロ_単独DM",
+        "time": "12時",
+        "inside": false,
+        "project": true,
+        "column": {
+            "note": "AM",
+            "project": "AO",
+            "draft": "AP",
+            "status": "AQ",
+        },
+    },
 ];
 
 
 var BANNER_SHEET_COLUMNS = [
     {
         "site": "HRプロ",
-        "name": "ヘッダー（メイン）",
+        "name": "HRプロ ヘッダー",
         "inside": true,
         "banner": true,
         "project": false,
         "column": {
-            "note": "E",
-            "draft": "F",
-            "status": "G",
+            "note": "D",
+            "draft": "E",
+            "status": "F",
         },
     },
     {
         "site": "HRプロ",
-        "name": "ヘッダー（メイン）",
+        "name": "HRプロ ヘッダー",
         "inside": false,
         "banner": true,
         "project": false,
         "column": {
-            "note": "E",
-            "draft": "F",
-            "status": "G",
+            "note": "G",
+            "draft": "H",
+            "status": "I",
         },
     },
     {
         "site": "HRプロ",
-        "name": "TOPテキスト①（メイン）",
+        "name": "HRプロ テキスト",
         "inside": false,
         "banner": true,
         "project": false,
         "column": {
-            "note": "H",
-            "draft": "I",
-            "status": "J",
+            "note": "J",
+            "draft": "K",
+            "status": "L",
         },
     },
     {
         "site": "HRプロ",
-        "name": "TOPテキスト②（メイン）",
+        "name": "HRプロ テキスト",
         "inside": false,
         "banner": true,
         "project": false,
         "column": {
-            "note": "K",
-            "draft": "L",
-            "status": "M",
+            "note": "M",
+            "draft": "N",
+            "status": "O",
         },
     },
     {
         "site": "HRプロ",
-        "name": "レクタングル①（レクタングル）",
+        "name": "HRプロ スモールバナー",
         "inside": false,
         "banner": true,
         "project": false,
         "column": {
-            "note": "N",
-            "draft": "O",
-            "status": "P",
+            "note": "P",
+            "draft": "Q",
+            "status": "R",
         },
     },
     {
         "site": "HRプロ",
-        "name": "レクタングル②（レクタングル）",
+        "name": "HRプロ スモールバナー",
         "inside": false,
         "banner": true,
         "project": false,
         "column": {
-            "note": "Q",
-            "draft": "R",
-            "status": "S",
+            "note": "S",
+            "draft": "T",
+            "status": "U",
         },
     },
     {
         "site": "HRプロ",
-        "name": "2ndレクタングル①（セカンドレクタングル）",
+        "name": "HRプロ レクタングル",
         "inside": false,
         "banner": true,
         "project": false,
         "column": {
-            "note": "T",
-            "draft": "U",
-            "status": "V",
+            "note": "V",
+            "draft": "W",
+            "status": "X",
         },
     },
     {
         "site": "HRプロ",
-        "name": "2ndレクタングル②（セカンドレクタングル）",
+        "name": "HRプロ レクタングル",
         "inside": false,
         "banner": true,
         "project": false,
         "column": {
-            "note": "W",
-            "draft": "X",
-            "status": "Y",
+            "note": "Y",
+            "draft": "Z",
+            "status": "AA",
         },
     },
     {
         "site": "HRプロ",
-        "name": "記事下 レクタングルバナー①（記事下レクタングル）",
+        "name": "HRプロ セカンド レクタングル",
         "inside": false,
         "banner": true,
         "project": false,
         "column": {
-            "note": "Z",
-            "draft": "AA",
-            "status": "AB",
+            "note": "AB",
+            "draft": "AC",
+            "status": "AD",
         },
     },
     {
         "site": "HRプロ",
-        "name": "記事下 レクタングルバナー②（記事下レクタングル）",
+        "name": "HRプロ セカンド レクタングル",
         "inside": false,
         "banner": true,
         "project": false,
         "column": {
-            "note": "AC",
-            "draft": "AD",
-            "status": "AE",
+            "note": "AE",
+            "draft": "AF",
+            "status": "AG",
+        },
+    },
+    {
+        "site": "HRプロ",
+        "name": "HRプロ 記事下 レクタングル",
+        "inside": false,
+        "banner": true,
+        "project": false,
+        "column": {
+            "note": "AH",
+            "draft": "AI",
+            "status": "AJ",
+        },
+    },
+    {
+        "site": "HRプロ",
+        "name": "HRプロ 記事下 レクタングル",
+        "inside": false,
+        "banner": true,
+        "project": false,
+        "column": {
+            "note": "AK",
+            "draft": "AL",
+            "status": "AM",
         },
     },
     {
         "site": "経営プロ",
-        "name": "B枠（販売／アンケートセット）",
+        "name": "経営プロ レクタングル",
+        "inside": true,
+        "banner": true,
+        "project": false,
+        "column": {
+            "note": "AO",
+            "draft": "AP",
+            "status": "AQ",
+        },
+    },
+    {
+        "site": "経営プロ",
+        "name": "経営プロ レクタングル",
         "inside": false,
         "banner": true,
         "project": false,
         "column": {
-            "note": "AI",
-            "draft": "AJ",
-            "status": "AK",
+            "note": "AR",
+            "draft": "AS",
+            "status": "AT",
         },
     },
 ];
@@ -366,7 +415,7 @@ var PROJECTS = [
         "owner": "村上様 草野",
         "isClient": false,
         "survey": true,
-        "to": "t.murakami@profuture.co.jp,k.kusano@profuture.co.jp"
+        "to": "t.murakami@profuture.co.jp,k.kusano@profuture.co.jp",
     },
     {
         "name": "通常アンケート",
@@ -570,7 +619,14 @@ function remindMail(adSheetName, adColumnSetting) {
             if (inputed['status'].indexOf('仮') === 0) {
                 // 仮の時はnoteの有無はチェックしない
             } else if (! inputed['note']) {
-                Browser.msgBox(beforeSalesDate.toString() + '営前' + adInfo['time'] + adInfo['name'] + '（' + inputed['company'] + '）のメモがありません。入力してください。');
+                let msg = `${beforeSalesDate.toString()}営前`;
+
+                if (adInfo['time']) {
+                    msg += ` ${adInfo['time']}`;
+                }
+
+                msg += ` ${adInfo['name']}（${inputed['company']}）のメモがありません。入力してください。`;
+                Browser.msgBox(msg);
                 return;
             }
 
@@ -728,12 +784,12 @@ function remindMail(adSheetName, adColumnSetting) {
                 sendMail(mailInfo, title, body, sendType);
 
                 if (sendType === 'send') {
-                    if (status.indexOf('仮') === 0) {
+                    if (inputed['status'].indexOf('仮') === 0) {
                       statusPrefix = '仮';
                     } else {
                       statusPrefix = '';
                     }
-                    sheet.getRange(i + START_DATA_ROW, adInfo['status']).setValue(statusPrefix + beforeSalesDate.toString() + 'R済');
+                    sheet.getRange(i + START_DATA_ROW, letterToColumn(adInfo['column']['status'])).setValue(statusPrefix + beforeSalesDate.toString() + 'R済');
                 }
             }
         });
@@ -909,7 +965,6 @@ function sendMail(mailInfo, title, body, sendType) {
     options['from'] = MAIL_FROM;
     options['name'] = MAIL_NAME;
     options['replyTo'] = MAIL_REPLY_TO;
-    //  Logger.log(options);
 
     if (sendType === 'draft') {
         GmailApp.createDraft(
@@ -936,9 +991,17 @@ function getMailTplSheetName(beforeSalesDate, inputed, projectInfo, adInfo) {
     var sheetName;
 
     if (inputed['status'].indexOf('仮') === 0) {
-        sheetName = '仮枠';
-    } else if ('banner' in adInfo) {
-        sheetName = beforeSalesDate.toString() + '営前バナー';
+        if (inAndTrue(adInfo, 'banner')) {
+            sheetName = '仮枠バナー';
+        } else {
+            sheetName = '仮枠';
+        }
+    } else if (inAndTrue(adInfo, 'banner')) {
+        if (inAndTrue(adInfo, 'inside')) {
+            sheetName = beforeSalesDate.toString() + '営前自社バナー';
+        } else {
+            sheetName = beforeSalesDate.toString() + '営前バナー';
+        }
     } else if (projectInfo) { // 案件対応の場合
         if (projectInfo['name'] == 'QM' || projectInfo['name'] == '通常アンケート') {
             sheetName = beforeSalesDate.toString() + '営前アンケート';
@@ -950,14 +1013,10 @@ function getMailTplSheetName(beforeSalesDate, inputed, projectInfo, adInfo) {
             sheetName = beforeSalesDate.toString() + '営前社内';
         }
     } else {
-        if (adInfo['inside']) {
-            if (inAndTrue(adInfo, 'dummyOutside')) {
-                sheetName = beforeSalesDate.toString() + '営前';
-            } else {
-                sheetName = beforeSalesDate.toString() + '営前社内';
-            }
-        } else {
+        if (! inAndTrue(adInfo, 'inside') || inAndTrue(adInfo, 'dummyOutside')) {
             sheetName = beforeSalesDate.toString() + '営前';
+        } else {
+            sheetName = beforeSalesDate.toString() + '営前社内';
         }
     }
 
