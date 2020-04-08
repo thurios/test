@@ -36,3 +36,11 @@ function inAndTrue(obj, key) {
 
   return key in obj && obj[key];
 }
+
+/*
+function clearAllNotes() {
+  // var ss = SpreadsheetApp.getActiveSpreadsheet();
+  // var sheet1 = ss.getSheetByName("バナー枠");
+  // sheet1.clearNotes();
+}
+*/

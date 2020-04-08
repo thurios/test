@@ -5,7 +5,6 @@ var MAIL_FROM2 = 'info@thurios.co.jp'; // 金井のテスト用
 var MAIL_NAME = 'ProFuture編集部';
 var MAIL_REPLY_TO = MAIL_FROM;
 var DEFAULT_CC = 'nyuko@profuture.co.jp';
-var PROQ_EMAIL = 'nyuko@ml.pro-q.jp';
 
 // 枠の設定
 var IN_HOUSE_SHEET_COLUMNS = [
@@ -408,6 +407,7 @@ var PROJECTS = [
         "isClient": true,
         "survey": true,
         "miniSurvey": true,
+        "cc": "y.naito@profuture.co.jp",
     },
     {
         "name": "共同調査",
@@ -423,6 +423,7 @@ var PROJECTS = [
         "owner": "",
         "isClient": true,
         "survey": true,
+        "cc": "y.naito@profuture.co.jp",
     },
 ];
 
@@ -700,16 +701,16 @@ function remindMail(adSheetName, adColumnSetting) {
 
                 mailInfo['cc'].push(noteInfo['staff']);
 
+                if (projectInfo && projectInfo['isClient'] && projectInfo['cc']) {
+                    mailInfo['cc'].push({
+                        "name": "",
+                        "mail": projectInfo['cc']
+                    });
+                }
+
                 mailInfo['cc'].push({
                     "name": "",
                     "mail": "kikaku@profuture.co.jp"
-                });
-            }
-
-            if (projectInfo && inAndTrue(projectInfo, 'miniSurvey')) {
-                mailInfo['cc'].push({
-                    "name": "",
-                    "mail": PROQ_EMAIL
                 });
             }
 
